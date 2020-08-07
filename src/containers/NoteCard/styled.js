@@ -32,6 +32,7 @@ export const StatusText = styled.span`
 
   color: #959596;
 `;
+
 export const StatusList = styled.div`
   display: inline-flex;
 
