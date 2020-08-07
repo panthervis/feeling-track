@@ -108,3 +108,32 @@ export const ListItemContent = styled.div`
   text-overflow: ellipsis;
   color: #666666;
 `;
+
+export const ListOuterElement = styled.div`
+  /*change the thinkness of the scrollbar here*/
+  &::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+  }
+  /*add a shadow to the scrollbar here*/
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 0px rgba(0, 0, 0, 0);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+  }
+  /*this is the little scrolly dealio in the bar*/
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.5);
+    height: 3px;
+  }
+  /*nobody needs this little scrollbar corner, I mean really, get rid of it haha*/
+  &::-webkit-scrollbar-corner {
+    display: none;
+    height: 0px;
+    width: 0px;
+  }
+`;

@@ -53,7 +53,6 @@ export default function NoteCard() {
   }, []);
 
   const handleSaveClick = () => {
-    setIsSaved(true);
     dispatchNote({
       type: 'save-note',
       payload: {
@@ -61,6 +60,7 @@ export default function NoteCard() {
         text,
       },
     });
+    setIsSaved(true);
   };
 
   const handleTextChange = (e) => {
@@ -111,7 +111,7 @@ export default function NoteCard() {
           <CardDate>{`Saved on ${currentNote.savedAt}`}</CardDate>
         ) : null}
 
-        {!isSaved ? (
+        {!isSaved && text ? (
           <Button onClick={handleSaveClick} status={status}>
             Save
           </Button>

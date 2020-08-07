@@ -2,19 +2,39 @@ import React from 'react';
 import { FixedSizeList as List, areEqual } from 'react-window';
 import AutoSizer from 'react-virtualized-auto-sizer';
 
-import { Container } from './styled';
+import { Container, ListOuterElement } from './styled';
 import ListItem from './ListItem';
 import { useNotesState } from '../../providers/NotesContext';
 
 const GUTTER_SIZE = 16;
 
+function handleOnWheel(e) {
+  const el = document.getElementById('outerElement');
+  if (el) {
+    el.scrollTo({
+      left: el.scrollLeft + e.deltaY * 50,
+      behavior: 'smooth',
+    });
+  }
+}
 const innerElementType = React.forwardRef(({ style, ...rest }, ref) => (
   <div
+    id="innerElement"
     style={{
       ...style,
       paddingLeft: GUTTER_SIZE,
       paddingRight: GUTTER_SIZE,
     }}
+    ref={ref}
+    {...rest}
+  />
+));
+
+const outerElementType = React.forwardRef(({ style, ...rest }, ref) => (
+  <ListOuterElement
+    id="outerElement"
+    style={{ ...style, overflowY: 'hidden' }}
+    onWheel={handleOnWheel}
     ref={ref}
     {...rest}
   />
@@ -29,7 +49,6 @@ export default function NoteList() {
       const note = notes[index];
       return (
         <ListItem
-          className="NoteItem"
           index={index}
           status={note.status}
           date={note.date}
@@ -37,7 +56,6 @@ export default function NoteList() {
           style={{
             ...style,
             left: style.left + GUTTER_SIZE,
-            top: style.top + GUTTER_SIZE,
             width: style.width - GUTTER_SIZE,
             height: style.height - GUTTER_SIZE,
           }}
@@ -58,6 +76,7 @@ export default function NoteList() {
             width={width}
             itemSize={206}
             innerElementType={innerElementType}
+            outerElementType={outerElementType}
             layout="horizontal"
           >
             {Column}

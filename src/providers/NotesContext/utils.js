@@ -19,7 +19,7 @@ export function getCurrentDate(formats) {
  * @param {Number} dayOfYear
  */
 export function getMonthYear(dayOfYear) {
-  dayjs(YearStartDay).dayOfYear(dayOfYear).format('MMMM YYYY');
+  return dayjs(YearStartDay).dayOfYear(dayOfYear).format('MMMM YYYY');
 }
 
 /**
