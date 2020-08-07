@@ -1,5 +1,10 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/d4c3f20a-11aa-4762-bbe1-e2f956352726/deploy-status)](https://app.netlify.com/sites/mystifying-newton-1d6269/deploys)
 
+### ATTENTION: Live link show a page with NO styles applied.
+This has been an [issue](https://github.com/styled-components/styled-components/issues/3122) for CRA bootstrapped app along with styled-components. They are likely resolve this issue soon.
+
+However, it works FINE on local environment.
+
 ## Introduction
 A simple one-page app for tracking your daily mood, based off the design reference.
 
