@@ -3,10 +3,18 @@
 ## Introduction
 A simple one-page app for tracking your daily mood, based off the design reference.
 
+## Live link
+
+[https://feeling-tracker.netlify.app/](https://feeling-tracker.netlify.app/)
+
+
 ## Technical side
 - Bootstraped with CRA
+
 - Styling with styled-components
+
 - Virtualization with react-window
+
 - Animation with react-spring
 
 ## Design & Functionality
@@ -53,10 +61,6 @@ A simple one-page app for tracking your daily mood, based off the design referen
       Implemented virtualized list for note list
      
       There are about 8 ~ 10 items are added to the DOM and rendered. This gives better UX and fast scroll speed.
-
-## Live link
-
-[https://feeling-tracker.netlify.app/](https://feeling-tracker.netlify.app/)
 
 ## Available Scripts
 
