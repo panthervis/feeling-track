@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const CardContainer = styled.div`
   display: flex;
@@ -17,6 +17,7 @@ export const CardHeader = styled.div`
   border-radius: 1.25rem 1.25rem 0 0;
 
   > h1 {
+    font-size: 1.5rem;
     margin-bottom: 2rem;
   }
 `;
@@ -86,17 +87,21 @@ export const CardDate = styled.span`
 
 export const CardFooter = styled.div`
   display: flex;
+  height: 85px;
   justify-content: space-between;
+  position: relative;
 
   padding: 1rem 2.3125rem 1.6875rem 2.3125rem;
   border: 0px;
 
-  /* &::before {
+  &::before {
     content: '';
-    display: block;
-    width: 80%;
+    position: absolute;
+    top: 0;
+    right: 2.3125rem;
+    left: 2.3125rem;
     border-top: 0.5px solid #e1dcdc;
-  } */
+  }
 
   > ${CardDate} {
     color: #959596;

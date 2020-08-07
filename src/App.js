@@ -1,6 +1,11 @@
 import React from 'react';
 import { animated, useTransition } from 'react-spring';
-import { Container, GradientBg } from './components/Container';
+import {
+  Container,
+  NoteCardContainer,
+  NoteListContainer,
+  GradientBg,
+} from './components/Container';
 import NoteCard from './containers/NoteCard';
 import NoteList from './containers/NoteList';
 import NoteFooter from './containers/NoteFooter';
@@ -36,24 +41,13 @@ function App() {
           </animated.div>
         ),
       )}
-      <div
-        style={{
-          flexGrow: 1,
-          margin: '8.3rem auto 0 auto',
-          width: '60%',
-        }}
-      >
+      <NoteCardContainer>
         <NoteCard />
-      </div>
-      <div
-        style={{
-          // flexGrow: 1,
-          // display: 'flex',
-          margin: '2rem 1.5rem',
-        }}
-      >
+      </NoteCardContainer>
+
+      <NoteListContainer>
         <NoteList />
-      </div>
+      </NoteListContainer>
 
       <NoteFooter />
     </Container>

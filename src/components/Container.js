@@ -13,6 +13,21 @@ export const Container = styled.div`
   /* background: ${(props) => props.theme.gradient[props.status]}; */
 `;
 
+export const NoteCardContainer = styled.div`
+  flex-grow: 1;
+  margin: 5.3rem auto 0 auto;
+  width: 80%;
+
+  @media screen and (min-width: 70em) {
+    margin: 8.3rem auto 0 auto;
+    width: 60%;
+  }
+`;
+
+export const NoteListContainer = styled.div`
+  margin: 2rem 1.5rem 1rem 1.5rem;
+`;
+
 export const GradientBg = styled.div`
   position: absolute;
   width: 100%;

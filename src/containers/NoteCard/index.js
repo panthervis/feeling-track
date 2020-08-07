@@ -60,7 +60,7 @@ export default function NoteCard() {
         text,
       },
     });
-    setIsSaved(true);
+    setTimeout(() => setIsSaved(true), 500);
   };
 
   const handleTextChange = (e) => {
@@ -108,7 +108,7 @@ export default function NoteCard() {
       <CardFooter>
         <CardDate>{currentNote.date}</CardDate>
         {isSaved && currentNote.savedAt ? (
-          <CardDate>{`Saved on ${currentNote.savedAt}`}</CardDate>
+          <CardDate saved>{`Saved on ${currentNote.savedAt}`}</CardDate>
         ) : null}
 
         {!isSaved && text ? (

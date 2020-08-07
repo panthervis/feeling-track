@@ -10,8 +10,15 @@ function notesReducer(state, action) {
   return produce(state, (draft) => {
     switch (action.type) {
       case 'select-day': {
-        draft.currentDayIdx = action.payload;
-        draft.currentNote = state.notes[action.payload];
+        draft.currentDayIdx =
+          action.payload >= state.notes.length
+            ? state.notes.length - 1
+            : action.payload <= 0
+            ? 0
+            : action.payload;
+
+        console.log('select-day', draft.currentDayIdx);
+        draft.currentNote = state.notes[draft.currentDayIdx];
         break;
       }
 
@@ -32,10 +39,8 @@ function notesReducer(state, action) {
 }
 
 function NotesProvider({ children }) {
-  const notes = getNotes();
-  const savedLastDay = parseInt(
-    localStorage.getItem('lastSavedDay') || notes.length - 1,
-  );
+  const notes = getNotes().reverse();
+  const savedLastDay = parseInt(localStorage.getItem('lastSavedDay') || 0);
 
   if (notes.length <= 0) {
     throw new Error('Error during parsing notes');

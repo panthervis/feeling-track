@@ -4,11 +4,11 @@ import { Container, Footer } from './styled';
 import { getMonthYear } from '../../providers/NotesContext/utils';
 
 export default function NoteFooter() {
-  const { currentDayIdx } = useNotesState();
+  const { currentDayIdx, noteCount } = useNotesState();
 
   return (
     <Container>
-      <Footer>{getMonthYear(currentDayIdx + 1)}</Footer>
+      <Footer>{getMonthYear(noteCount - currentDayIdx)}</Footer>
     </Container>
   );
 }
