@@ -8,6 +8,10 @@ A simple one-page app for tracking your daily mood, based off the design referen
 - Styling with styled-components
 - Virtualization with react-window
 
+## Live link
+
+[https://feeling-tracker.netlify.app/](https://feeling-tracker.netlify.app/)
+
 ## Available Scripts
 
 ### `yarn start`
