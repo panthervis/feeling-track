@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   @import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css');
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
   /* --- Reset --- */
   html,
@@ -86,7 +86,7 @@ export const GlobalStyle = createGlobalStyle`
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: normal;
   }

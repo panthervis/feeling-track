@@ -66,7 +66,6 @@ export const CardContent = styled.div`
 
     color: #959596;
 
-    font-family: Inter;
     font-style: normal;
     font-weight: normal;
     font-size: 1.5rem;

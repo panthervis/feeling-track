@@ -1,6 +1,7 @@
 import React from 'react';
 import { animated, useTransition } from 'react-spring';
 import {
+  AppName,
   Container,
   NoteCardContainer,
   NoteListContainer,
@@ -41,6 +42,7 @@ function App() {
           </animated.div>
         ),
       )}
+      <AppName>Simplejournal</AppName>
       <NoteCardContainer>
         <NoteCard />
       </NoteCardContainer>

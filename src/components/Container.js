@@ -13,6 +13,13 @@ export const Container = styled.div`
   /* background: ${(props) => props.theme.gradient[props.status]}; */
 `;
 
+export const AppName = styled.div`
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  color: white;
+`;
+
 export const NoteCardContainer = styled.div`
   flex-grow: 1;
   margin: 5.3rem auto 0 auto;

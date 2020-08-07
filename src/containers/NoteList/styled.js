@@ -1,17 +1,19 @@
 import styled, { css } from 'styled-components';
 
 export const ListItemContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.6fr 1fr 1.4fr;
+  gap: 5px 0px;
+  grid-template-areas: 'status' 'date' 'content';
 
   height: 140px;
   max-height: 100%;
   /* max-width: 260px; */
 
-  padding: 16px 24px;
+  padding: 0.8rem 1.2rem;
   background: #fcfbfc;
-  border-radius: 20px;
+  border-radius: 1.3rem;
   backdrop-filter: blur(5px);
   cursor: pointer;
 
@@ -75,9 +77,9 @@ ListItemContainer.defaultProps = {
 };
 
 export const ListItemStatus = styled.div`
-  flex: 1;
+  grid-area: status;
   background: #fff;
-  border-radius: 30px;
+  border-radius: 50%;
   width: 27px;
   height: 27px;
   line-height: 27px;
@@ -99,9 +101,7 @@ ListItemStatus.defaultProps = {
 };
 
 export const ListItemDate = styled.div`
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
+  grid-area: date;
 
   font-style: normal;
   font-weight: 500;
@@ -112,10 +112,7 @@ export const ListItemDate = styled.div`
 `;
 
 export const ListItemContent = styled.div`
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
-  width: 100%;
+  grid-area: content;
 
   font-style: normal;
   font-weight: normal;
@@ -123,10 +120,13 @@ export const ListItemContent = styled.div`
   line-height: 18px;
 
   overflow: hidden;
-  text-overflow: ellipsis;
 
-  word-wrap: break-word;
-  color: #666666;
+  p {
+    text-overflow: ellipsis;
+
+    word-wrap: break-word;
+    color: #666666;
+  }
 `;
 
 export const ListOuterElement = styled.div`
