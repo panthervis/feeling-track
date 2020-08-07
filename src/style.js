@@ -1,8 +1,13 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
-  @import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css');
-  @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+  /*
+   * On production @import does not work. More ref: https://github.com/styled-components/styled-components/issues/2911#issuecomment-592012166
+   *
+   */
+   
+  /* @import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css');
+  @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap'); */
 
   /* --- Reset --- */
   html,
