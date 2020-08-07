@@ -20,4 +20,13 @@ export class Note {
     this.text = text;
     this.savedAt = getCurrentDate('MMM DD') + ' at ' + getCurrentDate('h:mm A');
   }
+
+  values() {
+    return {
+      status: this.status,
+      text: this.text,
+      date: this.date,
+      savedAt: this.savedAt,
+    };
+  }
 }

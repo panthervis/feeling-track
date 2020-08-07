@@ -1,6 +1,6 @@
 import React from 'react';
 import produce from 'immer';
-import { getNotes } from './utils';
+import { getNotes, saveNoteToStorage } from './utils';
 import { Note } from './model';
 
 const NotesStateContext = React.createContext();
@@ -20,8 +20,7 @@ function notesReducer(state, action) {
         draft.currentNote.content = action.payload;
         draft.currentNote.saveNote(status, text);
         draft.notes[state.currentDayIdx] = Note.clone(draft.currentNote);
-
-        console.log('saved', draft.notes[state.currentDayIdx]);
+        saveNoteToStorage(state.currentDayIdx, draft.currentNote);
         break;
       }
 
@@ -34,6 +33,9 @@ function notesReducer(state, action) {
 
 function NotesProvider({ children }) {
   const notes = getNotes();
+  const savedLastDay = parseInt(
+    localStorage.getItem('lastSavedDay') || notes.length - 1,
+  );
 
   if (notes.length <= 0) {
     throw new Error('Error during parsing notes');
@@ -41,8 +43,9 @@ function NotesProvider({ children }) {
 
   const [state, dispatch] = React.useReducer(notesReducer, {
     notes,
-    currentDayIdx: notes.length - 1,
-    currentNote: notes[notes.length - 1],
+    noteCount: notes.length,
+    currentDayIdx: savedLastDay,
+    currentNote: notes[savedLastDay],
   });
 
   return (

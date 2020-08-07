@@ -1,41 +1,69 @@
 import React from 'react';
+import { FixedSizeList as List, areEqual } from 'react-window';
+import AutoSizer from 'react-virtualized-auto-sizer';
+
 import { Container } from './styled';
-import ListItem from '../../components/ListItem';
+import ListItem from './ListItem';
+import { useNotesState } from '../../providers/NotesContext';
+
+const GUTTER_SIZE = 16;
+
+const innerElementType = React.forwardRef(({ style, ...rest }, ref) => (
+  <div
+    style={{
+      ...style,
+      paddingLeft: GUTTER_SIZE,
+      paddingRight: GUTTER_SIZE,
+    }}
+    ref={ref}
+    {...rest}
+  />
+));
 
 export default function NoteList() {
+  const { notes } = useNotesState();
+
+  const Column = React.memo(
+    (props) => {
+      const { index, style } = props;
+      const note = notes[index];
+      return (
+        <ListItem
+          className="NoteItem"
+          index={index}
+          status={note.status}
+          date={note.date}
+          content={note.text}
+          style={{
+            ...style,
+            left: style.left + GUTTER_SIZE,
+            top: style.top + GUTTER_SIZE,
+            width: style.width - GUTTER_SIZE,
+            height: style.height - GUTTER_SIZE,
+          }}
+        />
+      );
+    },
+
+    areEqual,
+  );
+
   return (
     <Container>
-      <ListItem
-        status={1}
-        date="July 20"
-        content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
-      />
-
-      <ListItem
-        status={2}
-        date="July 21"
-        content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
-      />
-
-      <ListItem
-        status={3}
-        date="July 22"
-        content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
-      />
-
-      <ListItem
-        status={4}
-        date="July 23"
-        content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
-      />
-
-      <ListItem
-        status={5}
-        date="July 24"
-        content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,"
-      />
-
-      <ListItem status={0} date="Today" content="" />
+      <AutoSizer disableHeight>
+        {({ width }) => (
+          <List
+            height={140}
+            itemCount={notes.length}
+            width={width}
+            itemSize={206}
+            innerElementType={innerElementType}
+            layout="horizontal"
+          >
+            {Column}
+          </List>
+        )}
+      </AutoSizer>
 
       {/* <ContainerHover /> */}
     </Container>

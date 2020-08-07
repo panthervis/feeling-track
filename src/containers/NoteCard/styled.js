@@ -62,7 +62,6 @@ export const CardContent = styled.div`
     width: 100%;
     outline: none;
     height: 100%;
-    position: absolute;
 
     color: #959596;
 
@@ -73,6 +72,7 @@ export const CardContent = styled.div`
     letter-spacing: -0.02em;
   }
 `;
+
 export const CardDate = styled.span`
   display: flex;
   align-items: center;
@@ -90,7 +90,13 @@ export const CardFooter = styled.div`
 
   padding: 1rem 2.3125rem 1.6875rem 2.3125rem;
   border: 0px;
-  border-top: 0.5px solid #e1dcdc;
+
+  /* &::before {
+    content: '';
+    display: block;
+    width: 80%;
+    border-top: 0.5px solid #e1dcdc;
+  } */
 
   > ${CardDate} {
     color: #959596;

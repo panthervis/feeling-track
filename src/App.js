@@ -1,8 +1,8 @@
 import React from 'react';
 import { Container } from './components/Container';
-import Footer from './components/Footer';
 import NoteCard from './containers/NoteCard';
 import NoteList from './containers/NoteList';
+import NoteFooter from './containers/NoteFooter';
 import { useFeelStatusState } from './providers/feel-status-context';
 
 function App() {
@@ -20,21 +20,15 @@ function App() {
       </div>
       <div
         style={{
-          flexGrow: 0,
+          // flexGrow: 1,
+          // display: 'flex',
           margin: '2rem 1.5rem',
         }}
       >
         <NoteList />
       </div>
-      <div
-        style={{
-          flexGrow: 0,
-          flexShrink: 0,
-          flexBasis: '70px',
-        }}
-      >
-        <Footer>July 20</Footer>
-      </div>
+
+      <NoteFooter />
     </Container>
   );
 }

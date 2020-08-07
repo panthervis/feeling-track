@@ -20,6 +20,8 @@ import { useNotesState, useNotesDispatch } from '../../providers/NotesContext';
 export default function NoteCard() {
   const [text, setText] = React.useState('');
   const [isSaved, setIsSaved] = React.useState(false);
+  const inputRef = React.useRef();
+
   const { status } = useFeelStatusState();
   const { currentNote } = useNotesState();
   const dispatchStatus = useFeelStatusDispatch();
@@ -36,10 +38,22 @@ export default function NoteCard() {
   // Load text
   React.useEffect(() => {
     setText(currentNote.text);
-    setIsSaved(true);
   }, [currentNote.text]);
 
+  // Load status
+  React.useEffect(() => {
+    dispatchStatus({
+      type: 'set',
+      payload: currentNote.status,
+    });
+  }, [dispatchStatus, currentNote.status]);
+
+  React.useEffect(() => {
+    if (inputRef.current) inputRef.current.focus();
+  }, []);
+
   const handleSaveClick = () => {
+    setIsSaved(true);
     dispatchNote({
       type: 'save-note',
       payload: {
@@ -67,12 +81,13 @@ export default function NoteCard() {
               key={v}
               status={v}
               selected={v === status}
-              onClick={() =>
+              onClick={() => {
+                if (v !== status) setIsSaved(false);
                 dispatchStatus({
                   type: 'set',
                   payload: v,
-                })
-              }
+                });
+              }}
             >
               {v}
             </StatusBadge>
@@ -85,6 +100,7 @@ export default function NoteCard() {
         <textarea
           placeholder="What made you feel that way?"
           value={text}
+          ref={inputRef}
           onChange={handleTextChange}
         />
       </CardContent>

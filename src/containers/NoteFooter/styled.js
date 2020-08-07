@@ -1,6 +1,12 @@
 import styled from 'styled-components';
 
-const Footer = styled.div`
+export const Container = styled.div`
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 70px;
+`;
+
+export const Footer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,5 +20,3 @@ const Footer = styled.div`
   font-style: normal;
   font-weight: 500;
 `;
-
-export default Footer;

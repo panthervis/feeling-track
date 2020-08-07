@@ -1,34 +1,110 @@
-import styled from 'styled-components';
-
-export const ContainerHover = styled.div`
-  position: absolute;
-  /* top: 0;
-  left: 0; */
-  width: 100%;
-  height: 100%;
-
-  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#bcbcbc+0,ffffff+100&0.6+0,0+100 */
-  background: -moz-linear-gradient(left,  rgba(188,188,188,0.6) 0%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(left,  rgba(188,188,188,0.6) 0%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right,  rgba(188,188,188,0.6) 0%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99bcbcbc', endColorstr='#00ffffff',GradientType=1 ); IE6-9;
-`;
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
+  flex: 1 1 auto;
+`;
+
+export const ListItemContainer = styled.div`
   display: flex;
-  flex-wrap: nowrap;
-  overflow-y: hidden;
-  /* overflow-x: scroll; */
-  flex-direction: row-reverse;
-  position: relative;
+  flex-direction: column;
+  flex-wrap: wrap;
 
-  > * {
-    margin: 0 1.1817rem;
+  height: 140px;
+  max-height: 100%;
+  max-width: 260px;
+
+  padding: 16px 24px;
+  background: #fcfbfc;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+  cursor: pointer;
+
+  border: ${(props) =>
+    props.selected ? '4px solid #ffffff' : '4px solid #fcfbfc'};
+
+  ${Container}:hover * {
+    opacity: 1 !important;
   }
 
-  &:hover {
-    ${ContainerHover} {
-      display: none;
-    }
+  &:last-child {
+    opacity: 1;
   }
+
+  &:nth-child(2n) {
+    opacity: 0.85;
+  }
+
+  &:nth-child(3n) {
+    opacity: 0.6;
+  }
+
+  &:nth-child(4n) {
+    opacity: 0.45;
+  }
+
+  &:nth-child(5n) {
+    opacity: 0.3;
+  }
+
+  &:nth-child(6n) {
+    opacity: 0.15;
+  }
+`;
+
+ListItemContainer.defaultProps = {
+  selected: false,
+};
+
+export const ListItemStatus = styled.div`
+  flex: 1;
+  background: #fff;
+  border-radius: 30px;
+  width: 27px;
+  height: 27px;
+  line-height: 27px;
+  text-align: center;
+  vertical-align: middle;
+
+  color: ${(props) => props.theme.solid[props.status]};
+
+  ${(props) =>
+    props.status === 0 &&
+    css`
+      background: transparent;
+      border: 2px solid #ffffff;
+    `};
+`;
+
+ListItemStatus.defaultProps = {
+  status: 0,
+};
+
+export const ListItemDate = styled.div`
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: -0.02em;
+  color: #333333;
+`;
+
+export const ListItemContent = styled.div`
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #666666;
 `;
