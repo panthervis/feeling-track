@@ -44,7 +44,7 @@ A simple one-page app for tracking your daily mood, based off the design referen
 - [x] Custom horizontal scrollbar implementation
 
 - [ ] Make this responsive
-  - [ ] Support tablet mode
+  - [x] Support tablet mode
   - [ ] Support mobile mode
       
 
