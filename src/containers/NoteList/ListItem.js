@@ -34,7 +34,9 @@ export default function ListItem({
       dir="ltr"
     >
       <ListItemStatus status={status}>{status}</ListItemStatus>
-      <ListItemDate>{index === 0 ? 'Today' : date}</ListItemDate>
+      <ListItemDate>
+        {index === 0 ? 'Today' : index === 1 ? 'Yesterday' : date}
+      </ListItemDate>
       <ListItemContent>
         <p>{content}</p>
       </ListItemContent>
