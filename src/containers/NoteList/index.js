@@ -48,6 +48,7 @@ export default function NoteList() {
 
   React.useEffect(() => {
     if (listRef.current) listRef.current.scrollToItem(currentDayIdx, 'start');
+    // eslint-disable-next-line
   }, [currentDayIdx]);
 
   React.useEffect(() => {
@@ -63,7 +64,7 @@ export default function NoteList() {
     return () => {
       document.removeEventListener('wheel', handleWindowOnWheel);
     };
-  }, [currentDayIdx]);
+  }, [dispatch, currentDayIdx]);
 
   const Column = React.memo(
     (props) => {

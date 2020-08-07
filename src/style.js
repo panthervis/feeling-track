@@ -85,20 +85,19 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: normal;
   }
   html,
   body {
     margin: 0;
     padding: 0;
+    
   }
   input,
   button {
     font: inherit;
   }
-
-  body {
-    font-family: 'Inter';
-
-  }
-
 `;

@@ -18,6 +18,8 @@ const StatusBadge = styled.div`
 
   cursor: pointer;
 
+  /* transition: background 0.5s linear; */
+
   ${(props) =>
     props.status &&
     props.selected &&

@@ -26,18 +26,11 @@ export default function ListItem({
     if (onSelected) onSelected();
   };
 
-  console.log(
-    'currentDayIndex',
-    currentDayIdx,
-    1 - (currentDayIdx - index) * 0.15,
-  );
-
   return (
     <ListItemContainer
       style={style}
       selected={currentDayIdx === index}
       onClick={handleItemClick}
-      // opacity={1 - (currentDayIdx - index) * 0.15}
       dir="ltr"
     >
       <ListItemStatus status={status}>{status}</ListItemStatus>

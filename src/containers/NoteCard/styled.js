@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const CardContainer = styled.div`
   display: flex;
@@ -66,7 +66,9 @@ export const CardContent = styled.div`
 
     color: #959596;
 
-    font-weight: 300;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
     font-size: 1.5rem;
     line-height: 1.81rem;
 

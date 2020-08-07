@@ -122,9 +122,10 @@ export const ListItemContent = styled.div`
   font-size: 12px;
   line-height: 18px;
 
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  word-wrap: break-word;
   color: #666666;
 `;
 
