@@ -4,49 +4,47 @@ export const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: 100%;
 
   background: #fcfbfc;
   box-shadow: 0px 20px 100px 10px rgba(0, 0, 0, 0.12);
-  border-radius: 20px;
+  border-radius: 1.25rem;
 `;
 
 export const CardHeader = styled.div`
   background: #f6f4f6;
   padding: 1.875rem 2.25rem 2.5rem 2.25rem;
+  border-radius: 1.25rem 1.25rem 0 0;
 
   > h1 {
     margin-bottom: 2rem;
   }
 `;
 
+export const StatusText = styled.span`
+  display: flex;
+  align-items: center;
+
+  font-size: 1rem;
+  line-height: 1.1875rem;
+  letter-spacing: -0.02em;
+  vertical-align: middle;
+
+  color: #959596;
+`;
 export const StatusList = styled.div`
   display: inline-flex;
 
-  & > * {
+  & > div {
     margin-right: 0.75rem;
-    vertical-align: middle;
   }
 
-  &:before {
-    content: 'Awful';
-    display: inline;
-    font-size: 1rem;
-    line-height: 1.1875rem;
-    letter-spacing: -0.02em;
+  & > ${StatusText} {
     margin-right: 1rem;
-    vertical-align: middle;
 
-    color: #959596;
-  }
-
-  &:after {
-    content: 'Amazing';
-    font-size: 1rem;
-    line-height: 1.1875rem;
-    letter-spacing: -0.02em;
-    margin-left: 0.25rem;
-
-    color: #959596;
+    &:last-child {
+      margin-left: 0.25rem;
+    }
   }
 `;
 
