@@ -8,6 +8,7 @@ export const Container = styled.div`
   justify-content: center;
   align-content: center;
 
+  transition: background-color 0.5s ease;
   background: ${(props) => props.theme.gradient[props.status]};
 `;
 
