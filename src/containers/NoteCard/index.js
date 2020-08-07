@@ -15,9 +15,45 @@ import {
   useFeelStatusDispatch,
 } from '../../providers/feel-status-context';
 
+import { useNotesState, useNotesDispatch } from '../../providers/NotesContext';
+
 export default function NoteCard() {
+  const [text, setText] = React.useState('');
+  const [isSaved, setIsSaved] = React.useState(false);
   const { status } = useFeelStatusState();
-  const dispatch = useFeelStatusDispatch();
+  const { currentNote } = useNotesState();
+  const dispatchStatus = useFeelStatusDispatch();
+  const dispatchNote = useNotesDispatch();
+
+  // Update status
+  React.useEffect(() => {
+    dispatchStatus({
+      type: 'set',
+      payload: status,
+    });
+  }, [dispatchStatus, status]);
+
+  // Load text
+  React.useEffect(() => {
+    setText(currentNote.text);
+    setIsSaved(true);
+  }, [currentNote.text]);
+
+  const handleSaveClick = () => {
+    dispatchNote({
+      type: 'save-note',
+      payload: {
+        status,
+        text,
+      },
+    });
+  };
+
+  const handleTextChange = (e) => {
+    setText(e.target.value);
+
+    if (isSaved) setIsSaved(false);
+  };
 
   return (
     <CardContainer>
@@ -32,7 +68,7 @@ export default function NoteCard() {
               status={v}
               selected={v === status}
               onClick={() =>
-                dispatch({
+                dispatchStatus({
                   type: 'set',
                   payload: v,
                 })
@@ -46,12 +82,24 @@ export default function NoteCard() {
       </CardHeader>
 
       <CardContent>
-        <textarea placeholder="What made you feel that way?" />
+        <textarea
+          placeholder="What made you feel that way?"
+          value={text}
+          onChange={handleTextChange}
+        />
       </CardContent>
 
       <CardFooter>
-        <CardDate>Jul 23</CardDate>
-        <Button>Save</Button>
+        <CardDate>{currentNote.date}</CardDate>
+        {isSaved && currentNote.savedAt ? (
+          <CardDate>{`Saved on ${currentNote.savedAt}`}</CardDate>
+        ) : null}
+
+        {!isSaved ? (
+          <Button onClick={handleSaveClick} status={status}>
+            Save
+          </Button>
+        ) : null}
       </CardFooter>
     </CardContainer>
   );

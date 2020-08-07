@@ -1,18 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { ThemeProvider } from 'styled-components';
+
 import App from './App';
+import { FeelStatusProvider } from './providers/feel-status-context';
+import { NotesProvider } from './providers/NotesContext';
+
 import { GlobalStyle } from './style';
 import { colors } from './theme';
-import { ThemeProvider } from 'styled-components';
-import { FeelStatusProvider } from './providers/feel-status-context';
+
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={{ ...colors }}>
       <FeelStatusProvider>
-        <GlobalStyle />
-        <App />
+        <NotesProvider>
+          <GlobalStyle />
+          <App />
+        </NotesProvider>
       </FeelStatusProvider>
     </ThemeProvider>
   </React.StrictMode>,
