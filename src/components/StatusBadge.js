@@ -1,19 +1,19 @@
 import styled, { css } from 'styled-components';
 
 const StatusBadge = styled.div`
+  display: inline;
   background: transparent;
   border: 1.5px solid #cccccc;
   box-sizing: border-box;
-  border-radius: 100px;
+  border-radius: 50%;
   text-align: center;
   color: #bbbbbb;
-  width: 56px;
-  height: 56px;
+  width: 3.5rem;
 
   font-style: normal;
   font-weight: 500;
-  font-size: 28px;
-  line-height: 56px;
+  font-size: 1.75rem;
+  line-height: 3.5rem;
   vertical-align: middle;
 
   cursor: pointer;
