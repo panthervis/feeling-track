@@ -8,8 +8,18 @@ export const Container = styled.div`
   justify-content: center;
   align-content: center;
 
-  transition: background-color 0.5s ease;
+  position: relative;
+  background: transparent;
+  /* background: ${(props) => props.theme.gradient[props.status]}; */
+`;
+
+export const GradientBg = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
   background: ${(props) => props.theme.gradient[props.status]};
+  z-index: -1;
 `;
 
 Container.defaultProps = {
