@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { ThemeProvider } from 'styled-components';
 
-import App from './App';
-import { FeelStatusProvider } from './providers/feel-status-context';
+import App from './containers/App';
+import { FeelStatusProvider } from './providers/FeelStatusContext';
 import { NotesProvider } from './providers/NotesContext';
 
-import { GlobalStyle } from './style';
-import { colors } from './theme';
+import { GlobalStyle } from './styles';
+import { colors } from './styles/theme';
 
 import * as serviceWorker from './serviceWorker';
 

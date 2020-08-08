@@ -6,12 +6,13 @@ import {
   NoteCardContainer,
   NoteListContainer,
   GradientBg,
-} from './components/Container';
-import NoteCard from './containers/NoteCard';
-import NoteList from './containers/NoteList';
-import NoteFooter from './containers/NoteFooter';
-import { useFeelStatusState } from './providers/feel-status-context';
-import usePrevious from './lib/usePrevious';
+} from '../../components/Container';
+import NoteCard from '../../containers/NoteCard';
+import NoteList from '../../containers/NoteList';
+import NoteFooter from '../../containers/NoteFooter';
+import usePrevious from '../../lib/usePrevious';
+import { useFeelStatusState } from '../../providers/FeelStatusContext';
+import useKeyboardControl from './hooks/useKeyboardControl';
 
 function App() {
   const { status } = useFeelStatusState();
@@ -28,6 +29,8 @@ function App() {
     setToggle(!toggle);
     // eslint-disable-next-line
   }, [status]);
+
+  useKeyboardControl();
 
   return (
     <Container>

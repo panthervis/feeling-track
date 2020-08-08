@@ -12,13 +12,13 @@ export const ListItemContainer = styled.div`
   /* max-width: 260px; */
 
   padding: 0.8rem 1.2rem;
-  background: #fcfbfc;
+  background: #f6f6f6;
   border-radius: 1.3rem;
   backdrop-filter: blur(5px);
   cursor: pointer;
 
   border: ${(props) =>
-    props.selected ? '4px solid #ffffff' : '4px solid #fcfbfc'};
+    props.selected ? '4px solid #ffffff' : '4px solid #f6f6f6'};
 
   opacity: 0.1;
 

@@ -13,7 +13,7 @@ import { Button } from '../../components/Button';
 import {
   useFeelStatusState,
   useFeelStatusDispatch,
-} from '../../providers/feel-status-context';
+} from '../../providers/FeelStatusContext';
 
 import { useNotesState, useNotesDispatch } from '../../providers/NotesContext';
 
