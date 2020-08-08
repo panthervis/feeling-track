@@ -57,10 +57,18 @@ A simple one-page app for tracking your daily mood, based off the design referen
       
 
 - [x] Whatever you think might make this better
-      
-      Implemented virtualized list for note list
-     
-      There are about 8 ~ 10 items are added to the DOM and rendered. This gives better UX and fast scroll speed.
+  - [x] Virtualized list
+
+       There are about 8 ~ 10 items are added to the DOM and rendered. This gives better UX and fast scroll speed.
+  - [x] Accessbility through keyboard control
+        
+       :arrow_left: **Select Prev day**
+       
+       :arrow_right: **Select Next day**
+       
+       HOME key: **Select Today**
+       
+       END key: **Select Jan 01**
 
 ## Available Scripts
 
