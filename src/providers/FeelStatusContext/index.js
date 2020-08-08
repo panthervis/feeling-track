@@ -1,5 +1,5 @@
 import React from 'react';
-import { feelStatus } from '../utils/const';
+import { feelStatus } from '../../utils/const';
 
 const FeelStatusStateContext = React.createContext();
 const FeelStatusDispatchContext = React.createContext();

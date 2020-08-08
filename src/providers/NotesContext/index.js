@@ -1,42 +1,10 @@
 import React from 'react';
-import produce from 'immer';
-import { getNotes, saveNoteToStorage } from './utils';
-import { Note } from './model';
+
+import { getNotes } from './utils';
+import notesReducer from './reducer';
 
 const NotesStateContext = React.createContext();
 const NotesDispatchContext = React.createContext();
-
-function notesReducer(state, action) {
-  return produce(state, (draft) => {
-    switch (action.type) {
-      case 'select-day': {
-        draft.currentDayIdx =
-          action.payload >= state.notes.length
-            ? state.notes.length - 1
-            : action.payload <= 0
-            ? 0
-            : action.payload;
-
-        console.log('select-day', draft.currentDayIdx);
-        draft.currentNote = state.notes[draft.currentDayIdx];
-        break;
-      }
-
-      case 'save-note': {
-        const { status, text } = action.payload;
-        draft.currentNote.content = action.payload;
-        draft.currentNote.saveNote(status, text);
-        draft.notes[state.currentDayIdx] = Note.clone(draft.currentNote);
-        saveNoteToStorage(state.currentDayIdx, draft.currentNote);
-        break;
-      }
-
-      default: {
-        throw new Error(`Unhandled action type: ${action.type}`);
-      }
-    }
-  });
-}
 
 function NotesProvider({ children }) {
   const notes = getNotes().reverse();
