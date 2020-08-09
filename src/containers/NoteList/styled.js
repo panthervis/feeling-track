@@ -132,21 +132,21 @@ export const ListItemContent = styled.div`
 export const ListOuterElement = styled.div`
   /*change the thinkness of the scrollbar here*/
   &::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
-    -webkit-border-radius: 6px;
-    border-radius: 6px;
+    width: 8px;
+    height: 8px;
+    -webkit-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0);
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
   }
   /*add a shadow to the scrollbar here*/
   &::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 0px rgba(0, 0, 0, 0);
-    -webkit-border-radius: 6px;
-    border-radius: 6px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
   }
   /*this is the little scrolly dealio in the bar*/
   &::-webkit-scrollbar-thumb {
-    border-radius: 6px;
+    border-radius: 8px;
     background: rgba(255, 255, 255, 0.5);
     height: 3px;
   }
@@ -156,4 +156,7 @@ export const ListOuterElement = styled.div`
     height: 0px;
     width: 0px;
   }
+
+  scrollbar-width: thin;
+  scrollbar-color: blue transparent;
 `;
