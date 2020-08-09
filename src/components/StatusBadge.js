@@ -24,9 +24,10 @@ const StatusBadge = styled.div`
     props.status &&
     props.selected &&
     css`
-      background: ${props.theme.solid[props.status]};
+      background: ${props.theme.solid[props.status]} !important;
       color: white;
       border: 0px;
+      z-index: 2;
     `}
 `;
 

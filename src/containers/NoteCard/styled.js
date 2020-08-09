@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import StatusBadge from '../../components/StatusBadge';
 
 export const CardContainer = styled.div`
   display: flex;
@@ -16,9 +17,17 @@ export const CardHeader = styled.div`
   padding: 1.875rem 2.25rem 2.5rem 2.25rem;
   border-radius: 1.25rem 1.25rem 0 0;
 
+  @media screen and (max-width: 648px) {
+    text-align: center;
+  }
+
   > h1 {
     font-size: 1.5rem;
     margin-bottom: 2rem;
+  }
+
+  & ${StatusBadge} {
+    background: #f6f4f6;
   }
 `;
 
@@ -46,6 +55,16 @@ export const StatusList = styled.div`
 
     &:last-child {
       margin-left: 0.25rem;
+    }
+  }
+
+  & > ${StatusBadge} {
+    @media screen and (max-width: 648px) {
+      margin-left: -1.8rem;
+
+      &:nth-of-type(1) {
+        margin-left: 1rem;
+      }
     }
   }
 `;
