@@ -63,7 +63,7 @@ export const StatusList = styled.div`
       margin-left: -1.8rem;
 
       &:nth-of-type(1) {
-        margin-left: 1rem;
+        margin-left: 0rem;
       }
     }
   }

@@ -36,11 +36,11 @@ function App() {
     <Container>
       {transitions.map(({ item, key, props }) =>
         item ? (
-          <animated.div style={props}>
+          <animated.div style={props} key={0}>
             <GradientBg status={prevStatus} />
           </animated.div>
         ) : (
-          <animated.div style={props}>
+          <animated.div style={props} key={1}>
             <GradientBg status={status} />
           </animated.div>
         ),
