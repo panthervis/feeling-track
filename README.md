@@ -11,6 +11,8 @@ A simple one-page app for tracking your daily mood, based off the design referen
 ## Technical side
 - Bootstraped with CRA
 
+- State management with Context API
+
 - Styling with styled-components
 
 - Virtualization with react-window
