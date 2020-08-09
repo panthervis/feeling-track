@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import StatusBadge from '../../components/StatusBadge';
 
 export const CardContainer = styled.div`
