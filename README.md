@@ -1,14 +1,15 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/d4c3f20a-11aa-4762-bbe1-e2f956352726/deploy-status)](https://app.netlify.com/sites/mystifying-newton-1d6269/deploys)
 
 ## Introduction
+
 A simple one-page app for tracking your daily mood, based off the design reference.
 
 ## Live link
 
 [https://feeling-tracker.netlify.app/](https://feeling-tracker.netlify.app/)
 
-
 ## Technical side
+
 - Bootstraped with CRA
 
 - State management with Context API
@@ -47,30 +48,35 @@ A simple one-page app for tracking your daily mood, based off the design referen
 
 - [ ] Add transitions for the card and list items on page load
 
-- [ ] Add transitions when switching between cards
-      
-      The whole background graident is faded in and out when status switches
+- [x] Add transitions when switching between cards
+        
+       The whole background graident is faded in and out when status changes.
 
 - [x] Custom horizontal scrollbar implementation
 
 - [ ] Make this responsive
+
   - [x] Support tablet mode
   - [ ] Support mobile mode
-      
+
+    [screenshot](https://prnt.sc/twndyw)
 
 - [x] Whatever you think might make this better
+
   - [x] Virtualized list
 
-       There are about 8 ~ 10 items are added to the DOM and rendered. This gives better UX and fast scroll speed.
+    There are about 8 ~ 10 items are added to the DOM and rendered. This gives better UX and fast scroll speed.
+
   - [x] Accessbility through keyboard control
-        
-       :arrow_left: **Select Prev day**
-       
-       :arrow_right: **Select Next day**
-       
-       HOME key: **Select Today**
-       
-       END key: **Select Jan 01**
+
+
+    :arrow_left: **Select Prev day**
+
+    :arrow_right: **Select Next day**
+
+    HOME key: **Select Today**
+
+    END key: **Select Jan 01**
 
 ## Available Scripts
 
