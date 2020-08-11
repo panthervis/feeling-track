@@ -158,5 +158,5 @@ export const ListOuterElement = styled.div`
   }
 
   scrollbar-width: thin;
-  scrollbar-color: blue transparent;
+  scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
 `;
