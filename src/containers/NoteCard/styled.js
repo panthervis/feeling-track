@@ -16,6 +16,7 @@ export const CardHeader = styled.div`
   background: #f6f4f6;
   padding: 1.875rem 2.25rem 2.5rem 2.25rem;
   border-radius: 1.25rem 1.25rem 0 0;
+  color: var(--gray-900);
 
   @media screen and (max-width: 648px) {
     text-align: center;
@@ -83,13 +84,16 @@ export const CardContent = styled.div`
     outline: none;
     height: 100%;
 
-    color: #959596;
+    color: var(--gray-900);
+
+    &::placeholder {
+      color: var(--gray-400);
+    }
 
     font-style: normal;
     font-weight: normal;
     font-size: 1.5rem;
     line-height: 1.81rem;
-
     letter-spacing: -0.02em;
   }
 `;
@@ -124,6 +128,6 @@ export const CardFooter = styled.div`
   }
 
   > ${CardDate} {
-    color: #959596;
+    color: var(--gray-400);
   }
 `;

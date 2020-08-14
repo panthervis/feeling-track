@@ -99,10 +99,19 @@ export const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    
   }
   input,
   button {
     font: inherit;
+  }
+
+  :root {
+    --gray-600: #666666;
+    --gray-400: #959596;
+    --gray-900: #333333;
+  }
+
+  body {
+    color: var(---gray-900);
   }
 `;

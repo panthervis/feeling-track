@@ -101,6 +101,12 @@ export default function NoteCard() {
           placeholder="What made you feel that way?"
           value={text}
           ref={inputRef}
+          onKeyDown={(e) => {
+            e.stopPropagation();
+          }}
+          onKeyUp={(e) => {
+            e.stopPropagation();
+          }}
           onChange={handleTextChange}
         />
       </CardContent>

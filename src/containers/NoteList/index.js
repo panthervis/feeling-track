@@ -92,7 +92,15 @@ export default function NoteList() {
   );
 
   return (
-    <Container>
+    <Container
+      className={
+        currentDayIdx === 0
+          ? 'is-today-selected'
+          : currentDayIdx === 1
+          ? 'is-yesterday-selected'
+          : ''
+      }
+    >
       <AutoSizer disableHeight>
         {({ width }) => (
           <List

@@ -22,44 +22,46 @@ export const ListItemContainer = styled.div`
 
   opacity: 0.1;
 
-  &:nth-child(0) {
+  ${(props) =>
+    props.selected &&
+    css`
+      opacity: 1 !important;
+    `}
+
+  &:nth-child(1) {
     opacity: 1;
   }
 
-  &:nth-child(1) {
-    opacity: 0.9;
-  }
-
   &:nth-child(2) {
-    opacity: 0.8;
+    opacity: 1;
   }
 
   &:nth-child(3) {
-    opacity: 0.7;
+    opacity: 1;
   }
 
   &:nth-child(4) {
-    opacity: 0.6;
+    opacity: 0.87;
   }
 
   &:nth-child(5) {
-    opacity: 0.5;
+    opacity: 0.74;
   }
 
   &:nth-child(6) {
-    opacity: 0.4;
+    opacity: 0.61;
   }
 
   &:nth-child(7) {
-    opacity: 0.3;
+    opacity: 0.48;
   }
 
   &:nth-child(8) {
-    opacity: 0.2;
+    opacity: 0.35;
   }
 
   &:nth-child(9) {
-    opacity: 0.1;
+    opacity: 0.22;
   }
 `;
 
@@ -68,6 +70,82 @@ export const Container = styled.div`
 
   &:hover ${ListItemContainer} {
     opacity: 1 !important;
+  }
+
+  &.is-today-selected ${ListItemContainer} {
+    &:nth-child(1) {
+      opacity: 1;
+    }
+
+    &:nth-child(2) {
+      opacity: 0.87;
+    }
+
+    &:nth-child(3) {
+      opacity: 0.74;
+    }
+
+    &:nth-child(4) {
+      opacity: 0.61;
+    }
+
+    &:nth-child(5) {
+      opacity: 0.48;
+    }
+
+    &:nth-child(6) {
+      opacity: 0.35;
+    }
+
+    &:nth-child(7) {
+      opacity: 0.22;
+    }
+
+    &:nth-child(8) {
+      opacity: 0.1;
+    }
+
+    &:nth-child(9) {
+      opacity: 0.1;
+    }
+  }
+
+  &.is-yesterday-selected ${ListItemContainer} {
+    &:nth-child(1) {
+      opacity: 1;
+    }
+
+    &:nth-child(2) {
+      opacity: 1;
+    }
+
+    &:nth-child(3) {
+      opacity: 0.87;
+    }
+
+    &:nth-child(4) {
+      opacity: 0.74;
+    }
+
+    &:nth-child(5) {
+      opacity: 0.61;
+    }
+
+    &:nth-child(6) {
+      opacity: 0.48;
+    }
+
+    &:nth-child(7) {
+      opacity: 0.35;
+    }
+
+    &:nth-child(8) {
+      opacity: 0.22;
+    }
+
+    &:nth-child(9) {
+      opacity: 0.1;
+    }
   }
 `;
 
@@ -78,6 +156,7 @@ ListItemContainer.defaultProps = {
 
 export const ListItemStatus = styled.div`
   grid-area: status;
+
   background: #fff;
   border-radius: 50%;
   width: 27px;
