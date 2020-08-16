@@ -1,0 +1,11 @@
+org: anthowen
+app: feeling-tracker
+service: feeling-tracker
+name: react-starter
+component: website
+
+inputs:
+  src:
+    src: ./src
+    hook: yarn build
+    dist: ./build
